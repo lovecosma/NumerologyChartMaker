@@ -1,0 +1,20 @@
+
+<% if @charts.length >= 1 %>
+<h3>List of your Numerology Charts</h3>
+<% else %>
+<h3>You have no charts yet!</h3>
+<% end %>
+
+  <% @charts.each do |chart| %>
+  <h3><a color="black" href="charts/<%= chart.id %>"><%= "#{chart.first_name} #{chart.middle_name} #{chart.last_name}" %></a></h3>
+  <section display="inline-block">
+  <form action="/charts/<%= chart.id %>" method="post">
+    <input type="hidden" value="patch" name="_method">
+    <input type="submit" value="edit">
+  </form>
+    <form action="/charts/<%= chart.id %>" method="post">
+      <input type="hidden" value="delete" name="_method">
+      <input type="submit" value="delete">
+    </form>
+  </section>
+  <% end %>

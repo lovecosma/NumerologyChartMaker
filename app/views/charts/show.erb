@@ -1,0 +1,18 @@
+<h1> <%= "#{@chart.first_name} #{@chart.middle_name} #{@chart.last_name}" %> </h1>
+<form action="/charts/<%= @chart.id %>" method="post">
+  <input type="hidden" value="patch" name="_method">
+  <input type="submit" value="edit">
+</form>
+  <form action="/charts/<%= @chart.id %>" method="post">
+    <input type="hidden" value="delete" name="_method">
+    <input type="submit" value="delete">
+  </form>
+<h2> <%= @chart.birthdate %> </h2>
+<h3>  <%= "Birthday Number: #{@chart.birthday_number}" %> </h3>
+<h3> <%= "Life Path Number: #{@chart.lifepath_number}" %> </h3>
+<h3> <%= "Soul Urge Number: #{@chart.soulurge_number}" %> </h3>
+<h3> <%= "Soul Urge Challenge Number: #{@chart.soulurge_challenge}" %> </h3>
+<h3> <%= "Expression Number: #{@chart.expression_number}" %> </h3>
+<h3> <% @chart.personality_number %> <% @chart.personality_challenge %> <%= "Expression Challenge Number: #{@chart.expression_challenge}" %> </h3>
+<h3> <%= "Personality Number: #{@chart.personality_number}" %> </h3>
+<h3> <%= "Personality Challenge Number: #{@chart.personality_challenge}" %> </h3>

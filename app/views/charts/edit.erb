@@ -1,0 +1,20 @@
+<h1>Edit Chart</h1>
+
+<form action="/charts/<%= @chart.id %>" method="post">
+  <input type="hidden" value="patch" name="_method">
+  <div>
+    <p>Input a person's first name, middle name, last name, and birthdate to create a simple numerological report for them.</p>
+    <label for="first">First Name</label>
+    <input type="text" name="first_name" id="first" value= <%= @chart.first_name %>>
+    <br>
+    <label for="first">Middle Name</label>
+    <input type="text" name="middle_name" value=<%= @chart.middle_name %>>
+    <br>
+    <label for="first">Last Name</label>
+    <input type="text" name="last_name" value=<%= @chart.last_name %>>
+    <br>
+    <label for="birthdate">Birthday MM/DD/YYYY:</label>
+    <input type="date" id="birthdate" name="birthdate" value= <%= @chart.birthdate %>>
+    <button type="submit" value="Create Chart">Submit</button>
+  </div>
+</form>
