@@ -9,25 +9,40 @@
 
     <title>SinatraApp</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <header>
+
+    </header>
     <div class="wrapper">
     <nav>
-      <ul>
+      <ul class="right">
         <% unless logged_in? %>
         <li><a href="/signup">signup</a></li>
         <li><a href="/login">login</a></li>
         <% else %>
-        <li><h3>Hello, <%= current_user.username %>!</h3></li>
         <li><a href="/logout">logout</a></li>
         <li display="inline-block"><a href="/charts">View Your Charts</a></li>
         <li><a href="/charts/new">Create New Chart</a></li>
         <% end %>
       </ul>
+      <ul class="left">
+        <% unless logged_in? %>
+        <li><a href="/" class="brand-logo">Numerology Chart Maker</a></li>
+        <% else %>
+        <li><a href="/" class="brand-logo">Numerology Chart Maker</a></li>
+        <% end %>
+      </ul>
     </nav>
+    <a class="right">Hello, <%= current_user.username %>!</a>
+
         <%= yield %>
 
       <footer class="branding">
@@ -36,6 +51,9 @@
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
