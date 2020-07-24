@@ -1,5 +1,5 @@
 <h1> <%= "#{@chart.first_name} #{@chart.middle_name} #{@chart.last_name}" %> </h1>
-<form action="/charts/<%= @chart.id %>" method="post">
+<form action="/charts/<%= @chart.id %>/edit" method="get">
   <input type="hidden" value="patch" name="_method">
   <input type="submit" value="edit">
 </form>

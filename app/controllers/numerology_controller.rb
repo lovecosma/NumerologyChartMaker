@@ -1,5 +1,4 @@
 class NumerologyController <  ApplicationController
-  use Rack::Flash
   get '/charts' do
     @charts = current_user.numerology_charts
     erb :'charts/index'
@@ -40,10 +39,12 @@ class NumerologyController <  ApplicationController
     end
   end
 
-get '/charts/:id/edit' do
-  set_chart
-  erb :'charts/edit'
+  get '/charts/:id/edit' do
+    set_chart
+    erb :'charts/edit'
 end
+
+
 
   get '/charts/:id' do
     set_chart

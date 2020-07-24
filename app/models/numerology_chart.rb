@@ -20,7 +20,7 @@ attr_accessor :pythag
  ]
 
   def birthday_number
-    birthday = self.birthdate.split('/')[1].to_i
+    birthday = self.birthdate.split('-')[2].to_i
     if [11, 22].include?(birthday)
       return birthday
     else
@@ -31,7 +31,7 @@ attr_accessor :pythag
   end
 
   def lifepath_number
-    birthday_array = self.birthdate.split('/').join.chars
+    birthday_array = self.birthdate.split('-').join.chars
     array_sum(array_sum(birthday_array).to_s.chars)
   end
 
