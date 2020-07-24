@@ -32,7 +32,7 @@ attr_accessor :pythag
 
   def lifepath_number
     birthday_array = self.birthdate.split('-').join.chars
-    array_sum(array_sum(birthday_array).to_s.chars)
+    reduce_number(birthday_array)
   end
 
   def soulurge_number
@@ -46,7 +46,7 @@ attr_accessor :pythag
     if [11, 22].include?(array_sum(@vowel_values))
       return array_sum(@vowel_values)
     else
-    return array_sum(array_sum(array_sum(@vowel_values).to_s.chars).to_s.chars)
+    return reduce_number(@vowel_values)
    end
   end
 
@@ -71,7 +71,7 @@ attr_accessor :pythag
     if [11, 22].include?(array_sum(full_name_values))
       return array_sum(full_name_values)
     else
-    return array_sum(array_sum(array_sum(full_name_values).to_s.chars).to_s.chars)
+      return reduce_number(full_name_values)
    end
   end
 
@@ -90,7 +90,7 @@ end
     if [11, 22].include?(array_sum(@con_values))
       return array_sum(@con_values)
     else
-    return array_sum(array_sum(array_sum(@con_values).to_s.chars).to_s.chars)
+    return reduce_number(@con_values)
    end
   end
 
@@ -108,6 +108,16 @@ end
     sum = 0
     array.each {|x| sum += x.to_i}
     sum
+  end
+
+  def reduce_number(array)
+    reduced_array = array_sum(array).to_s.chars
+    if(reduced_array.length > 1)
+      reduce_number(reduced_array)
+    else
+      return array_sum(reduced_array).to_i
+    end
+
   end
 
   def full_name
