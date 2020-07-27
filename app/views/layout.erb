@@ -41,7 +41,9 @@
         <% end %>
       </ul>
     </nav>
-    <a class="right">Hello, <%= current_user.username %>!</a>
+      <% if logged_in? %>
+      <p class="right">Hello, <%= current_user.username %>!</p>
+      <% end %>
 
         <%= yield %>
 

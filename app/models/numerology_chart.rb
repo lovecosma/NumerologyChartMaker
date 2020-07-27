@@ -57,7 +57,7 @@ attr_accessor :pythag
     first_last.sort do |a,b|
       a<=>b
     end
-    first_last.last - first_last.first
+    absolute(first_last.last - first_last.first)
   end
 
   def expression_number
@@ -101,7 +101,7 @@ end
     first_last.sort do |a,b|
       a<=>b
     end
-    first_last.last - first_last.first
+    absolute(first_last.last - first_last.first)
   end
 
   def array_sum(array)
@@ -118,6 +118,15 @@ end
       return array_sum(reduced_array).to_i
     end
 
+  end
+
+  def absolute(int)
+    if int < 0
+      int *= -1
+      return int
+    else
+      return int
+    end
   end
 
   def full_name
